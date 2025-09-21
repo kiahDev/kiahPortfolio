@@ -132,7 +132,7 @@ nav .left h3 {
 #hero .hero-description {
     margin-bottom: 50px;
     color: var(--light);
-    max-width: 800px;
+    max-width: 1200px;
     line-height: 1.6;
 }
 
@@ -222,13 +222,37 @@ nav .left h3 {
     }
 
     #hero h1 {
-        font-size: 60px; /* reduce heading size */
+        font-size: 60px; 
     }
 
     #hero p {
         font-size: 18px;
     }
+
+    #aboutMe {
+        gap: 30px;
+        padding: 40px 30px;
+        height: auto;
+        flex-direction: column;
+    }
+
+    #aboutMe .me img {
+        width: 250px;
+        margin-bottom: 20px;
+    }
+
+    #aboutMe .desc {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    #aboutMe .desc .desc-container {
+        display: flex;
+        gap: 40px;
+    }
 }
+
+
 
 /* Phone (600px and below) */
 @media (max-width: 600px) {
