@@ -5,7 +5,12 @@
     --highlight: #9CA3AF;
     --light: #6c757d;
     --button: #111827;
+    --shade: 14213D;
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -13,6 +18,7 @@ body {
     font-weight: 400;
     margin: 0;
     padding-top: 80px;
+    height: 10000px;
 }
 
 h1, h2, h3, h4 {
@@ -36,30 +42,49 @@ nav {
     width: 100%;         
     box-sizing: border-box; 
     z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.1);  
+    backdrop-filter: blur(7px);           
+    -webkit-backdrop-filter: blur(7px);   
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.3);
 }
 
+/* Middle nav */
+nav .middle a {
+    color: black;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav .middle a:hover {
+    color: gray;
+}
+
+/* Right section */
 nav .right a {
     color: black;
     text-decoration: none;
     margin: 0 10px;
     padding: 5px 10px;
     border-radius: 7px;
-
     transition: all 0.3s ease;
+    border: 1px solid gray;
 }
 
-nav .right a:last-child {
+nav .right a {
     background-color: var(--button);
     color: white;
 }
 
 nav .right a:hover,
-nav .right a:focus,
 nav .right a:active {
-    transform: scale(1.1);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 1);
+    color: gray;
 }
 
+/* Left logo */
 nav .left h3 {
     font-size: 22px;
 }
@@ -71,6 +96,7 @@ nav .left h3 {
 .second {
   color: #111827;  
 }
+
 
 #top .right #menu-btn {
     border: 1px solid var(--highlight);
@@ -106,7 +132,6 @@ nav .left h3 {
 #hero .hero-description {
     margin-bottom: 50px;
     color: var(--light);
-
     max-width: 800px;
     line-height: 1.6;
 }
@@ -148,60 +173,43 @@ nav .left h3 {
     transform: scale(1.05);             
 }
 
-/* Project Section */
+/* About Me Section */
 
-#skills {
-    background-color: #edede9;
-    margin-top: 50px;
+#aboutMe {
+    margin-top: 200px;
     padding: 20px 50px;
+    background-color: #0A0A0A;
+    height: 600px;
 
     display: flex;
     justify-content: space-evenly;
-}
-
-#skills .skills-details {
-    flex: 1;
-    padding: 80px 50px;
-}
-
-#skills .skills-details h2 {
-    font-size: 30px;
-}
-
-
-#skills .skills-details .skill-list {
-    display: flex;
     align-items: center;
-    gap: 15px;
-
-    padding: 20px 0;
-    font-size: 35px;
 }
 
-#skills .skills-details .skill-list i {
-    background-color: var(--main-bg);
-    border-radius: 15px;
-    padding: 12px;
-
-    width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 25px;
+#aboutMe .me img {
+    width: 350px;
+    border-radius: 20px;
 }
 
-#skills .skills-details .skill-list p {
-    font-size: 18px;
-}
-
-#skills .skills-details .skill-list .timeframe {
+#aboutMe .desc {
+    color: white;
+    line-height: 1.9;
+    max-width: 800px;
     font-size: 14px;
-    color: var(--light);
 }
 
+#aboutMe .desc .desc-container {
+    display: flex;
+    gap: 300px;
+}
 
+#aboutMe .desc .desc-container {
+    line-height: 0.6;
+}
+
+#aboutMe .desc p {
+    color: gray;
+}
 
 /* Tablet (768px and below) */
 @media (max-width: 1024px) {
@@ -220,19 +228,15 @@ nav .left h3 {
     #hero p {
         font-size: 18px;
     }
-
-    #skills {
-        flex-direction: column; /* stack sections vertically */
-        padding: 30px 20px;
-    }
-
-    #skills .skills-details {
-        padding: 40px 20px;
-    }
 }
 
 /* Phone (600px and below) */
 @media (max-width: 600px) {
+    
+    nav .middle a {
+        font-size: 8px;
+    }
+
     nav {
         padding: 10px 20px;
     }
@@ -245,6 +249,7 @@ nav .left h3 {
         font-size: 20px;
         border-radius: 50%;
         padding: 5px 7px;
+        border: none;
     }
 
     nav .right a:hover,
@@ -252,10 +257,10 @@ nav .left h3 {
     nav .right a:active {
         transform: none;    
         box-shadow: none;      
-        background: none;     
+        background: none;  
     }
 
-    nav .right a:last-child {
+    nav .right a {
         color: black;
         background-color: transparent;
         padding: 0;
@@ -306,39 +311,26 @@ nav .left h3 {
         transition: transform 0.15s ease; /* fast reset */
     }
 
-    #skills {
+    #aboutMe {
         flex-direction: column;
-        padding: 20px;
+        height: 100vh;
     }
 
-    #skills .skills-details {
-        padding: 20px 10px;
+    #aboutMe .me img {
+        width: 200px;
+        margin-bottom: 20px;
     }
 
-    #skills .skills-details h2 {
-        font-size: 22px;
-        text-align: center;
+    #aboutMe .desc p {
+        max-width: 100%;
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 10px;
     }
 
-    #skills .skills-details .skill-list {
-        font-size: 24px;
-        gap: 10px;
-    }
-
-    #skills .skills-details .skill-list p {
-        font-size: 16px;
-    }
-
-    #menu-btn:hover,
-    #menu-btn:active,
-    #menu-btn:focus {
-        background-color: #222;
-        color: #fff;
-        transform: scale(1.1);
+    #aboutMe .desc .desc-container {
+        display: flex;
+        gap: 100px;
     }
 }
-
-
-
-
 
