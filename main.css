@@ -313,7 +313,7 @@ nav .left h3 {
 
     #aboutMe {
         flex-direction: column;
-        height: 100vh;
+        height: auto;
     }
 
     #aboutMe .me img {
